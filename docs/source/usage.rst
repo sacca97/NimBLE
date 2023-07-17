@@ -1,7 +1,8 @@
+.. _usage-guide-basics:
+
 Usage
 =====
 This usage guide is for the nRF52840-DK board, which has a PCA10056 BSP.
-.. _installation:
 
 Prerequisites
 -------------
@@ -59,6 +60,6 @@ In case you need to reset the board to its original conditions, you can use the 
 .. code-block:: bash
 
    JLinkExe -device nRF52 -speed 4000 -if SWD
-   
+
    J-Link> erase
 
