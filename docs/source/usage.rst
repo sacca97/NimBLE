@@ -11,7 +11,7 @@ Prerequisites
 
 .. _jlink: https://www.segger.com/downloads/jlink/
 
-Project setup
+Board setup
 ----------------------
 
 #. Initialize a new project
@@ -38,7 +38,10 @@ Project setup
          newt load nrf52_boot
 
 
-#. Build and run a blinky app
+
+Hello world (Blinky app)
+----------------------------
+The Blinky app is a simple application that blinks the LED on the board.
 
       .. code-block:: bash
 
@@ -49,6 +52,36 @@ Project setup
          newt target set nrf52_blinky cflags="-Wno-error"
          newt build nrf52_blinky
          newt run nrf52_blinky 0
+
+BLE peripheral
+----------------
+The BLE peripheral app is a simple application that advertises itself as a BLE peripheral.
+
+      .. code-block:: bash
+
+         newt pkg new apps/ble_peripheral -t app
+         newt target create nrf52_ble_peripheral
+         newt target set nrf52_ble_peripheral app=apps/ble_peripheral
+         newt target set nrf52_ble_peripheral bsp=@apache-mynewt-core/hw/bsp/nordic_pca10056
+         newt target set nrf52_ble_peripheral build_profile=debug
+         newt target set nrf52_ble_peripheral cflags="-Wno-error"
+         newt build nrf52_ble_peripheral
+         newt run nrf52_ble_peripheral 0
+
+BLE central
+----------------
+The BLE central app is a simple application that scans for BLE peripherals.
+
+      .. code-block:: bash
+
+         newt pkg new apps/ble_central -t app
+         newt target create nrf52_ble_central
+         newt target set nrf52_ble_central app=apps/ble_central
+         newt target set nrf52_ble_central bsp=@apache-mynewt-core/hw/bsp/nordic_pca10056
+         newt target set nrf52_ble_central build_profile=debug
+         newt target set nrf52_ble_central cflags="-Wno-error"
+         newt build nrf52_ble_central
+         newt run nrf52_ble_central 0
 
 Board reset
 -----------
@@ -61,3 +94,6 @@ In case you need to reset the board to its original conditions, you can use the 
 
    J-Link> erase
 
+.. note::
+
+   After erasing the board, the bootloader will be gone. You will need to flash it again.
