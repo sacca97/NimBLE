@@ -1,5 +1,3 @@
-.. _usage-guide-basics:
-
 Usage
 =====
 This usage guide is for the nRF52840-DK board, which has a PCA10056 BSP.
