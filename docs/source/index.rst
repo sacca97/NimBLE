@@ -1,22 +1,20 @@
-Welcome to Lumache's documentation!
-===================================
+Playing with NimBLE and the nRF52840 board
+==========================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**NimBLE** is the world's first open-source BLE stack, it is compliant to Bluetooth 5.0 and supports Bluetooth Mesh.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Components
+----------
 
-.. note::
+* Controller
+  
+  * Physical layer
+  * Link layer
 
-   This project is under active development.
-
-Contents
---------
-
-.. toctree::
-
-   usage
-   api
+* Host
+  
+  * L2CAP
+  * SecurityManager (SMP)
+  * (G)ATT
+  * GAP
+  * HCI
